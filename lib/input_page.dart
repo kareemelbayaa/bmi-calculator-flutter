@@ -26,14 +26,18 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                      color: _activeCardColor,
-                      cardChild: IconContent(FontAwesomeIcons.mars, 'Male')),
+                  child: GestureDetector(
+                    child: ReusableCard(
+                        color: _activeCardColor,
+                        cardChild: IconContent(FontAwesomeIcons.mars, 'Male')),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    color: _activeCardColor,
-                    cardChild: IconContent(FontAwesomeIcons.venus, 'Female'),
+                  child: GestureDetector(
+                    child: ReusableCard(
+                      color: _activeCardColor,
+                      cardChild: IconContent(FontAwesomeIcons.venus, 'Female'),
+                    ),
                   ),
                 )
               ],
@@ -69,5 +73,3 @@ class _InputPageState extends State<InputPage> {
         ));
   }
 }
-
-
