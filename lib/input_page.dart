@@ -205,7 +205,10 @@ class _InputPageState extends State<InputPage> {
               height: kBottomContainerHeight,
               width: double.infinity,
               child: FlatButton(
-                  onPressed: () {}, child: Text('Calculate your BMI')),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/result_page');
+                  },
+                  child: Text('Calculate your BMI')),
             )
           ],
         ));
