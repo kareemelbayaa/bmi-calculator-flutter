@@ -1,6 +1,8 @@
+import 'package:bmi_calculator/icon_content.dart';
+import 'package:bmi_calculator/reusable_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-const _bottomContainerHeight = 80.0;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -8,6 +10,10 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  var _accentColor = Color(0xFFEB1555);
+  var _bottomContainerHeight = 80.0;
+  var _activeCardColor = Color(0xFF1D1E33);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +26,15 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: Color(0xFF1D1E33)),
+                  child: ReusableCard(
+                      color: _activeCardColor,
+                      cardChild: IconContent(FontAwesomeIcons.mars, 'Male')),
                 ),
                 Expanded(
-                  child: ReusableCard(color: Color(0xFF1D1E33),),
+                  child: ReusableCard(
+                    color: _activeCardColor,
+                    cardChild: IconContent(FontAwesomeIcons.venus, 'Female'),
+                  ),
                 )
               ],
             )),
@@ -31,7 +42,7 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: Color(0xFF1D1E33),),
+                  child: ReusableCard(color: _activeCardColor),
                 )
               ],
             )),
@@ -39,37 +50,24 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: Color(0xFF1D1E33),),
+                  child: ReusableCard(color: _activeCardColor),
                 ),
                 Expanded(
-                  child: ReusableCard(color: Color(0xFF1D1E33),),
+                  child: ReusableCard(color: _activeCardColor),
                 )
               ],
             )),
             Container(
-              color: Color(0xFFEB1555),
+              color: _accentColor,
               margin: EdgeInsets.only(top: 10),
               height: _bottomContainerHeight,
               width: double.infinity,
-              child: FlatButton(onPressed: (){}, child: Text('Calculate your BMI')),
+              child: FlatButton(
+                  onPressed: () {}, child: Text('Calculate your BMI')),
             )
           ],
         ));
   }
 }
 
-class ReusableCard extends StatelessWidget {
-  final Color color;
 
-  ReusableCard({@required this.color});
-  @override
-  Widget build(BuildContext context) {
-    //color property to change it later on
-
-    return Container(
-      margin: EdgeInsets.all(15),
-      decoration: BoxDecoration(
-          color: color, borderRadius: BorderRadius.circular(10)),
-    );
-  }
-}
